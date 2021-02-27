@@ -22,7 +22,7 @@ and Applications
   * Offline:
     * Indexing Tokens (mapping substrings of tokens (character n-grams) to tokens)
     * Building a language model (that tells us a priori probability of a query)
-    * Building an Error Model (that tells us the probability of a query string given the intended query, in antoher word  estimates the probability of a particular misspelling, given an intended query.)
+    * Building an Error Model (that tells us the probability of a query string given the intended query, in another word  estimates the probability of a particular misspelling, given an intended query.)
   * At query time:
     * Candidate generation (e.g. retrieval all tokens within an edit distance of 1 of the misspelled query)
     * Scoring (Prob (candidate | query) ∝ Prob (query | candidate) * Prob (candidate))
@@ -60,7 +60,7 @@ A Two-phase Approach for Genomic Information Retrieval](http://www.cs.sfu.ca/~an
     * semantic analysis: We can use the Word2vec model to embed words and phrases into a vector space that captures their semantics. This embedding allows us to recognize how much the query tokens overlap with one another in meaning, which in turn helps us estimate the consequence of ignoring a token.  For example "polo shirt" -> "polo" is  but "dress shirt" -> "shirt" completely changes the query.
 3. Query Segmentation (increase precision): divides the search query into a sequence of semantic units, e.g. “machine learning” framework. Then we can auto-phrase segments or couple auto-phrasing with query expansion approaches like stemming, lemmatization, and synonym expansion. Finally, if we’re using query relaxation, it’s important for relaxation to respect query segmentation by not breaking up segments. We can do Query Segmentation by using:
     *  Dictionary Approach
-    * Statistical Approach:  create a dictionary from a document corpus. We analyze the corpus to find collocations and kepp the sequences that co-occur more than expected. 
+    * Statistical Approach:  create a dictionary from a document corpus. We analyze the corpus to find collocations and keep the sequences that co-occur more than expected. 
     * Supervised Machine Learning: a binary classification problem at the token level to decide whether it continues the current segment or begins a new one (represent the examples as feature vectors including token frequencies, mutual information for bigrams, part-of-speech tags, etc.)
 4. Query scoping (increase precision): Query scoping is a powerful technique to increase precision by leveraging the explicit structure of the corpus and the implicit structure of queries. Query scoping often relies on query segmentation. We determine an entity type for each query segment, and then restrict matches based on an association between entity types and document fields. e.g. black (color) michael kors (brand) dress (category)
     * Query Tagging, query tagging is a special case of named-entity recognition (NER)
@@ -85,9 +85,10 @@ A Two-phase Approach for Genomic Information Retrieval](http://www.cs.sfu.ca/~an
       * Average Keystrokes (or Average Prefix Length)
     * Papers:
       * [A Survey of Query Auto Completion in Information Retrieval](https://staff.fnwi.uva.nl/m.derijke/wp-content/papercite-data/pdf/cai-survey-2016.pdf)
-      * https://www.slideshare.net/GaneshVenkataraman3/instant-search-a-handson-tutorial
+      
 9. Instant Search
-Instant search goes a step beyond autocomplete: instead of suggesting search queries, it shows searchers actual search results     * as they type.
+Instant search goes a step beyond autocomplete: instead of suggesting search queries, it shows searchers actual search results as they type.
+    * https://www.slideshare.net/GaneshVenkataraman3/instant-search-a-handson-tutorial
 
 ***
 
